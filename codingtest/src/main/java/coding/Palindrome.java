@@ -1,4 +1,4 @@
-package main.java.coding;
+package coding;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,24 +35,29 @@ public class Palindrome {
 
     private static boolean isWordPalindrome(String inputString) {
         String[] wordsArray = inputString.split(" ");
-        if (wordsArray.length!=1) {
+        if (wordsArray.length != 1) {
             for (int i = 0, j = wordsArray.length - 1; i <= j; i++, j--) {
                 if (!removeCharacters(wordsArray[i]).equalsIgnoreCase(removeCharacters(wordsArray[j])))
                     return false;
             }
             return true;
-        }
-        else
+        } else
             return false;
     }
 
+    /**
+     * Read line by line and evaluate if the input is a palindrome and its classification
+     *
+     * @param readRoot file root where the input is read it
+     * @param saveRoot file root where the result is presented
+     */
     public static void evaluate(String readRoot, String saveRoot) throws IOException {
         ArrayList<String> fileInformation = FileManagement.readFile(readRoot);
         ArrayList<String> palindromes = new ArrayList<String>();
         for (String stringEvaluate : fileInformation) {
             if (Palindrome.isPalindrome(stringEvaluate))
                 palindromes.add(stringEvaluate + " (" + palindromeClassification(stringEvaluate) + ")");
-             else if (Palindrome.isWordPalindrome(stringEvaluate))
+            else if (Palindrome.isWordPalindrome(stringEvaluate))
                 palindromes.add(stringEvaluate + "(Word by Word palindrome)");
         }
         FileManagement.writeFile(saveRoot, palindromes);

@@ -1,6 +1,4 @@
-package test.java.coding;
-
-import main.java.coding.Palindrome;
+package coding;
 
 import java.io.IOException;
 
