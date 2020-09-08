@@ -7,20 +7,20 @@ public class FileManagement {
 
     public static ArrayList<String> readFile(String fileRoot) throws FileNotFoundException, IOException {
         ArrayList<String> ar = new ArrayList<String>();
-        String cadena;
+        String string;
         FileReader f = new FileReader(fileRoot);
         BufferedReader b = new BufferedReader(f);
-        while ((cadena = b.readLine()) != null) {
-            ar.add(cadena);
+        while ((string = b.readLine()) != null) {
+            ar.add(string);
         }
         b.close();
         return ar;
     }
 
     public static void writeFile(String rootFile, ArrayList<String> palindromes) throws IOException {
-        File archivo = new File(rootFile);
+        File file = new File(rootFile);
         BufferedWriter bw;
-        bw = new BufferedWriter(new FileWriter(archivo));
+        bw = new BufferedWriter(new FileWriter(file));
         for (String palindrome : palindromes) {
             if (!String.valueOf(palindrome).equals("")) {
                 bw.write(String.valueOf(palindrome));
