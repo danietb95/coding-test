@@ -80,6 +80,12 @@ public class ReverseUnitTest {
     }
 
     @Test
+    public void concatAndReverseMore50Characters() {
+        String answer = ReverseCharacters.reverse("(thisisthestring)(thisisthestring)(thisisthestring)(thisisthestring)(thisisthestring)");
+        Assert.assertEquals(answer, "NULL");
+    }
+
+    @Test
     public void validStringToReverse() {
         Stack<Integer> openParenthesis = new Stack<Integer>();
         openParenthesis.push(1);
