@@ -15,15 +15,29 @@ public class ReverseCharacters {
 
     public static String reverseString(String inputString) {
         String reverse = "";
-        for (int x = inputString.length() - 1; x >= 0; x--)
-            reverse = reverse + inputString.charAt(x);
+        for (int i = inputString.length() - 1; i >= 0; i--)
+            reverse = reverse + inputString.charAt(i);
         return reverse;
+    }
+
+    public static boolean isValidString(Stack<Integer> openParenthesis, int position, String StringToReverse) {
+        if (!openParenthesis.isEmpty() && position == StringToReverse.length() - 1 && StringToReverse.charAt(position) != ')') {
+            return false;
+        }
+        if (StringToReverse.charAt(position) == ')' && openParenthesis.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 
     public static String reverse(String inputString) {
         String StringToReverse = inputString;
         Stack<Integer> openParenthesis = new Stack<Integer>();
         for (int i = 0; i < StringToReverse.length(); i++) {
+            if (!isValidString(openParenthesis, i, StringToReverse)) {
+                StringToReverse = "";
+                break;
+            }
             if (StringToReverse.charAt(i) == '(')
                 openParenthesis.push(i);
             if (StringToReverse.charAt(i) == ')' && !openParenthesis.isEmpty()) {
@@ -39,7 +53,7 @@ public class ReverseCharacters {
         ArrayList<String> fileInformation = FileManagement.readFile(readRoot);
         ArrayList<String> reverseOutput = new ArrayList<String>();
         for (String stringEvaluate : fileInformation) {
-            if (stringEvaluate.length()>50)
+            if (stringEvaluate.length() > 50)
                 reverseOutput.add("NULL");
             else
                 reverseOutput.add(reverse(stringEvaluate));

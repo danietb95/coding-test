@@ -22,8 +22,10 @@ public class FileManagement {
         BufferedWriter bw;
         bw = new BufferedWriter(new FileWriter(archivo));
         for (String palindrome : palindromes) {
-            bw.write(String.valueOf(palindrome));
-            bw.newLine();
+            if (!String.valueOf(palindrome).equals("")) {
+                bw.write(String.valueOf(palindrome));
+                bw.newLine();
+            }
         }
         bw.close();
     }
