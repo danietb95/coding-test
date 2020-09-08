@@ -9,13 +9,13 @@ public class Palindrome {
         int numberWords = inputString.split(" ").length;
         String palindromeType = "";
         if (numberWords == 1)
-            palindromeType = "Single Word main.java.coding.Palindrome";
+            palindromeType = "Single Word Palindrome";
         else if (numberWords == 2)
-            palindromeType = "Two Words main.java.coding.Palindrome";
+            palindromeType = "Two Words Palindrome";
         else if (numberWords > 2 && numberWords <= 5)
-            palindromeType = "Multiple Words main.java.coding.Palindrome";
+            palindromeType = "Multiple Words Palindrome";
         else if (numberWords > 5)
-            palindromeType = "Hell of a main.java.coding.Palindrome";
+            palindromeType = " Hell of a Palindrome";
         return palindromeType;
     }
 
@@ -51,7 +51,7 @@ public class Palindrome {
         ArrayList<String> palindromes = new ArrayList<String>();
         for (String stringEvaluate : fileInformation) {
             if (Palindrome.isPalindrome(stringEvaluate))
-                palindromes.add(stringEvaluate + "(" + palindromeClassification(stringEvaluate) + ")");
+                palindromes.add(stringEvaluate + " (" + palindromeClassification(stringEvaluate) + ")");
              else if (Palindrome.isWordPalindrome(stringEvaluate))
                 palindromes.add(stringEvaluate + "(Word by Word palindrome)");
         }

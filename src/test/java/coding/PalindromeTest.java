@@ -4,8 +4,8 @@ import main.java.coding.Palindrome;
 
 import java.io.IOException;
 
-public class Test {
+public class PalindromeTest {
     public static void main(String[] args) throws IOException {
-        Palindrome.evaluate("Readpalindrome.csv", "Palindromes.csv");
+        Palindrome.evaluate("palindromeInput.csv", "palindromeOutput.csv");
     }
 }
